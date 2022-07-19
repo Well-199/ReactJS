@@ -1,1 +1,3 @@
-### 07 Parametros de componente
+### 02 Trabalhando com Props
+
+### 02 Um framework reativo

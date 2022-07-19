@@ -1,10 +1,11 @@
 import './styles.css'
 
-const TextInput = () => {
+const TextInput = ({ label, placeholder }) => {
+
     return(
         <div className="textInput">
-            <label>Nome</label>
-            <input placeholder='Digite o seu nome'/>
+            <label>{label}</label>
+            <input placeholder={placeholder}/>
         </div>
     )
 }
