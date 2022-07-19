@@ -1,1 +1,1 @@
-### 04 Primeiro componente: Banner
+### 05 Explorando o projeto
