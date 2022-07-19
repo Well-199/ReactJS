@@ -1,27 +1,15 @@
-import logo from './logo.svg'
-import './App.css'
-import Banner from './componentes/Banner/Banner'
+import Banner from './components/Banner'
+import TextInput from './components/TextInput'
 
 function App() {
   return (
     <div className="App">
-      <Banner/>
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Bem-vindo ao React!
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Aprender React
-        </a>
-      </header>
+      <Banner />
+      <TextInput label="Nome"/>
+      <TextInput label="Cargo"/>
+      <TextInput label="Imagem"/>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

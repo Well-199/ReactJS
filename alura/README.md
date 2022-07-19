@@ -1,1 +1,1 @@
-### 05 Explorando o projeto
+### 07 Parametros de componente
