@@ -1,10 +1,14 @@
 import './styles.css'
 
-const DropDown = ({ label, itens, required }) => {
+const DropDown = ({ label, itens, required, inTyping, value }) => {
     return(
         <div className='dropdown'>
             <label>{label}</label>
-            <select required={required}>
+            <select 
+                onChange={event => inTyping(event.target.value)} 
+                required={required}
+                value={value}
+            >
                 {itens.map((item, index) => 
                 <option key={index}>{item}</option>
                 )}
