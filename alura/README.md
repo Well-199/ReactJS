@@ -1,3 +1,3 @@
-### 02 Trabalhando com Props
+### 03 Interagindo com o usuário
 
-### 02 Um framework reativo
+### 02 Manipulando o input do usuário
