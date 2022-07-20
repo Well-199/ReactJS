@@ -1,3 +1,3 @@
-### 03 Interagindo com o usuário
+### 04 Montando os times
 
-### 03 Controlando o estado
+### 02 Criando o componente Time

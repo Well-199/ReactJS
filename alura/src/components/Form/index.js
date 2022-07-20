@@ -4,7 +4,7 @@ import TextInput from '../TextInput'
 import DropDown from '../dropDown'
 import Button from '../Button'
 
-const Form = () => {
+const Form = ({ addCollaborator }) => {
 
     const [name, setName] = useState('')
     const [occupation, setOccupation] = useState('')
@@ -12,6 +12,7 @@ const Form = () => {
     const [team, setTeam] = useState('')
 
     const teams = [
+        'Selecione',
         'Programação',
         'Front-End',
         'Data Science',
@@ -23,6 +24,13 @@ const Form = () => {
 
     const inSave = (event) => {
         event.preventDefault()
+
+        addCollaborator({
+            name: name,
+            occupation: occupation,
+            urlImage: urlImage,
+            team: team
+        })
     }
 
     return(
