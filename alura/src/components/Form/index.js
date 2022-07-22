@@ -4,23 +4,12 @@ import TextInput from '../TextInput'
 import DropDown from '../dropDown'
 import Button from '../Button'
 
-const Form = ({ addCollaborator }) => {
+const Form = ({ addCollaborator, teams }) => {
 
     const [name, setName] = useState('')
     const [occupation, setOccupation] = useState('')
     const [urlImage, setUrlImage] = useState('')
     const [team, setTeam] = useState('')
-
-    const teams = [
-        'Selecione',
-        'Programação',
-        'Front-End',
-        'Data Science',
-        'Devops',
-        'UX e Design',
-        'Mobile',
-        'Inovação e Gestão'
-    ]
 
     const inSave = (event) => {
         event.preventDefault()

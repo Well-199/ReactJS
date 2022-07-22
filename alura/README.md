@@ -1,3 +1,3 @@
 ### 04 Montando os times
 
-### 02 Criando o componente Time
+### 07 Escondendo times vazios
