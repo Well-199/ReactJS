@@ -9,6 +9,7 @@ const DropDown = ({ label, itens, required, inTyping, value }) => {
                 required={required}
                 value={value}
             >
+                <option value=""></option>
                 {itens.map((item, index) => 
                 <option key={index}>{item}</option>
                 )}

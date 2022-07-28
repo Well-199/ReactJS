@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Banner from './components/Banner'
 import Form from './components/Form'
 import Team from './components/Team'
+import Footer from './components/Footer'
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
   const [collaborator, setCollaborator] = useState([])
 
   const newCollaborator = (data) => {
+    debugger
     setCollaborator([...collaborator, data])
   }
 
@@ -37,6 +39,8 @@ function App() {
           collaborators={collaborator.filter(item => item.team==team.name)}
         />
       )}
+
+      <Footer />
     </div>
   )
 }
