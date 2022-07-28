@@ -20,6 +20,11 @@ const Form = ({ addCollaborator, teams }) => {
             urlImage: urlImage,
             team: team
         })
+        
+        setName('')
+        setOccupation('')
+        setUrlImage('')
+        setTeam('')
     }
 
     return(
