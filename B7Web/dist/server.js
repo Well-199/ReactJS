@@ -1,3 +1,11 @@
 "use strict";
-const myname = "My name is Well";
-console.log(myname);
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = __importDefault(require("express"));
+const server = (0, express_1.default)();
+server.get('/', (req, res) => {
+    res.send('<h1>Olá Mundo!</h1>');
+});
+server.listen(3000);
