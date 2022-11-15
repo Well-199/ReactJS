@@ -27,7 +27,7 @@ export const items: Item[] = [
     },
     {
         date: new Date(2022, 10, 1),
-        category: 'Freelancer',
+        category: 'freelancer',
         title: 'Página Web with ReactJS',
         value: 1900
     }
