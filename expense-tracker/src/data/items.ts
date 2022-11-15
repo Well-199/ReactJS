@@ -1,4 +1,6 @@
-export const items = [
+import { Item } from '../types/Item'
+
+export const items: Item[] = [
     {
         date: new Date(2022, 11, 10),
         category: 'food',
