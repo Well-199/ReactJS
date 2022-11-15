@@ -1,26 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Container, Header, HeaderText, Body } from "./App.styles"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+  	return(
+		<Container>
+			<Header>
+				<HeaderText>Sistema Financeiro</HeaderText>
+			</Header>
+			<Body>
+				
+				{/* Área de informações */}
+
+				{/* Área de inserção */}
+
+				{/* Área de itens */}
+
+			</Body>
+		</Container>
+  	)
 }
 
-export default App;
+export default App
