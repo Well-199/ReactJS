@@ -1,4 +1,4 @@
 ###### Sistema de Finanças Pessoais
 
 
-##### Sistema de Finanças Pessoais 33:20
+##### Sistema de Finanças Pessoais 37:00
