@@ -5,7 +5,7 @@ function App() {
 		<div>
 			<header>
 				
-				<h1>Learn React</h1>
+				<h1>Any React</h1>
 				
 			</header>
 		</div>
