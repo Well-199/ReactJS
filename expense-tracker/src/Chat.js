@@ -9,34 +9,108 @@ const Chat = () => {
 
     const socket = io('http://54.159.228.240:4000/', { query: { match: 67 }})
 
-    const [messages, setMessages] = useState('')
+    const [clienteId, setClienteId] = useState(56488)
+    const [restauranteId, setRestauranteID] = useState(67)
+    const [chavePedido, setChavePedido] = useState('56.46240188903388')
+    const [message, setMessage] = useState('')
+    const [chat, setChat] = useState([])
     
-    function handleMessage(){
-        socket.emit('sendAtt', {message: messages, rest: true, id: Math.random() * 1000})
-        setMessages('')
-    }
 
     useEffect(() => {
 
         socket.on('attOrders', (data) => {
-            setMessages(data.message)
+            //setMessage(data.message)
             console.log('SHOW MESSAGE', data)
         })
 
-    }, [messages])
+    }, [message])
+
+    async function sendChatMessage() {
+
+        const req = await fetch('http://192.168.3.3:3001/api/salvar-mensagem', {
+            method: 'POST',
+            body: JSON.stringify({
+                cliente_id: clienteId,
+                restaurante_id: restauranteId,
+                chave_pedido: chavePedido,
+                mensagemCliente: message
+            }),
+            headers: {
+                'Content-Type': 'application/json',
+                'authorization': '165765787964209588022835036543'
+            }
+        })
+        const res = await req.json()
+    
+        getMessages()
+    
+      }
+
+      function handleMessage(){
+
+        if(message !== ''){
+            socket.emit('sendAtt', {message: true})
+            setMessage('')
+        }
+
+    }
+    
+    
+      async function getMessages () {
+    
+        const req = await fetch('http://192.168.3.3:3001/api/retorna-mensagens', {
+            method: 'POST',
+            body: JSON.stringify({
+                cliente_id: clienteId,
+                restaurante_id: restauranteId,
+                chave_pedido: chavePedido
+            }),
+            headers: {
+                'Content-Type': 'application/json',
+                'authorization': '165765787964209588022835036543'
+            }
+        })
+        const res = await req.json()
+        setChat(res.result)
+    
+    }
+
+    console.log(chat)
+
+    useEffect(() => {
+        getMessages()
+    }, [])
 
     return(
         <div style={{
             'width': '100%',
-            'height': '100vh',
             'display': 'flex',
             'flexDirection': 'column',
             'justifyContent': 'center',
-            'alignItems': 'center',
-            'backgroundColor': '#34495e'
+            'alignItems': 'center'
         }}>
+            
 
-            <h1 style={{'color': '#FFFFFF'}}>{ messages }</h1>
+            {chat.map(item => 
+                <ul style={{ 'listStyle': 'none' }}>
+
+                    {item.comentario &&
+                        <li style={{ 'color' : '#34495e', 'marginBottom': '20px' }}>
+                            Cliente: {item.comentario}
+                        </li>
+                    }
+
+                    {item.observacao && 
+                    <li style={{ 'color' : '#e74c3c' }}>
+                        Restaurante: {item.observacao}
+                    </li>
+                    }
+                </ul>
+            )}
+                   
+            
+
+            <h1 style={{'color': '#FFFFFF'}}>{ message }</h1>
             <input 
                 style={{ 
                     'width': '450px',
@@ -46,8 +120,8 @@ const Chat = () => {
                     'marginBottom': '30px',
                 }}
                 type="text" 
-                value={messages}
-                onChange={(e) => setMessages(e.target.value)}
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
             />
 
             <button 
@@ -56,7 +130,7 @@ const Chat = () => {
                     'height': '40px',
                     'borderRadius': '8px',
                     'outline': 0,
-                    'border': 'none',
+                    'borderColor': '#CCC',
                     'cursor': 'pointer',
                     'color': '#000'
                 }}
