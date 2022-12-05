@@ -1,3 +1,3 @@
 ### Context example
 
-### Criando o Context e Provider
+### Criando Context com Reducers 1
